@@ -8,6 +8,7 @@ setopt no_clobber
 bindkey -e
 setopt hash_list_all
 setopt extended_glob
+setopt ksh_glob
 
 setopt autopushd
 export DIRSTACKSIZE=30
