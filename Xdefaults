@@ -1,4 +1,5 @@
 !! drop in Solarized colorscheme for Xresources/Xdefaults
+!! Adapted from an earlier version of https://github.com/solarized/xresources/blob/master/Xresources.dark, I guess …
 
 !!SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      RGB         HSB
 !!--------- ------- ---- -------  ----------- ---------- ----------- -----------
