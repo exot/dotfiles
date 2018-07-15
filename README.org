@@ -1,0 +1,5 @@
+#+title: Daniel’s Configuration Files
+
+This is assorted collection of my configuration files.  They are stored here for
+personal reference and, by showing them to the public, to force me to keep them
+clean.
