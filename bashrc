@@ -19,6 +19,9 @@ shopt -s lithist
 # No clobbering
 shopt -o -s noclobber
 
+# Extended globbing
+shopt -s extglob
+
 # Check the window size after each command and, if necessary,
 # Update the values of LINES and COLUMNS.
 shopt -s checkwinsize
