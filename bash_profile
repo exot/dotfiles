@@ -1,7 +1,10 @@
-if [ -n "$PS1" -a "x$TERM" != "xdumb" -a "`zsh -c '[[ "a" =~ "a" ]] && echo 1' 2> /dev/null`" ]
-  then
-    exec zsh --login
-fi
+# -*- sh -*-
 
-[[ -r ~/.bashrc ]] && . ~/.bashrc
+export LANG=en_US.UTF-8
+
 [[ -r /etc/bashrc ]] && . /etc/bashrc
+[[ -r ~/.bashrc ]] && . ~/.bashrc
+
+PATH=$HOME/.local/bin/:$PATH
+export PATH
+
