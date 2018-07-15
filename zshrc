@@ -1,6 +1,6 @@
 # -*- sh -*-
 
-# Prompt
+# General options
 
 enable -r repeat
 setopt no_beep
@@ -10,9 +10,7 @@ setopt hash_list_all
 setopt extended_glob
 setopt ksh_glob
 
-setopt autopushd
-export DIRSTACKSIZE=30
-alias d='dirs -v'
+# Prompt
 
 autoload colors ; colors
 
@@ -97,6 +95,12 @@ zstyle -e ':completion:*:approximate:*' max-errors \
 
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+# Dirstack handling
+
+setopt autopushd
+DIRSTACKSIZE=30
+alias d='dirs -v'
 
 # Convenience
 
