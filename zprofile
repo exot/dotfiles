@@ -1,13 +1,6 @@
-# General
+# -*- sh -*-
 
-if [[ -x "/usr/bin/zsh" ]]; then
-  SHELL=/usr/bin/zsh
-elif [[ -x "/bin/zsh" ]]; then
-  SHELL=/bin/zsh
-else
-  SHELL=/bin/bash
-fi
-export SHELL
+# General
 
 umask 077
 
@@ -50,28 +43,25 @@ export LESS
 
 eval "$(lesspipe)"
 
-export HISTSIZE=1000
-export SAVEHIST=1000
-export HIST_IGNORE_ALL_DUPS=1
-export HISTFILE=~/.zsh_history
+# Other environment variables
 
 export PYTHONSTARTUP="${HOME}/.pythonrc"
 export WORKON_HOME=${HOME}/.local/share/virtualenvs/
 
-export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig/
-export LD_LIBRARY_PATH=$HOME/.local/lib/
+export PKG_CONFIG_PATH=${HOME}/.local/lib/pkgconfig/
+export LD_LIBRARY_PATH=${HOME}/.local/lib/
 
-export TEXMFHOME=$HOME/Documents/texmf
+export TEXMFHOME=${HOME}/Documents/texmf
 export TEXMFOUTPUT=/tmp
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-export PERL5LIB="/home/exot/.local/share/perl5/lib/perl5"
-export PERL_LOCAL_LIB_ROOT="/home/exot/.local/share/perl5/"
-export PERL_MB_OPT="--install_base \"/home/exot/.local/share/perl5/\""
-export PERL_MM_OPT="INSTALL_BASE=/home/exot/.local/share/perl5/"
+export PERL5LIB="${HOME}/.local/share/perl5/lib/perl5"
+export PERL_LOCAL_LIB_ROOT="${HOME}/.local/share/perl5/"
+export PERL_MB_OPT="--install_base \"${HOME}/.local/share/perl5/\""
+export PERL_MM_OPT="INSTALL_BASE=${HOME}/.local/share/perl5/"
 
-export PATH="/home/exot/.local/share/perl5/bin:${HOME}/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/sbin:/sbin:/usr/local/sbin"
+export PATH="${HOME}/.local/share/perl5/bin:${HOME}/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/sbin:/sbin:/usr/local/sbin"
 export MANPATH="${PERL_LOCAL_LIB_ROOT}/man:${HOME}/.local/share/man:/usr/share/man"
 export INFOPATH="/usr/share/info:${HOME}/.local/share/info/"
 

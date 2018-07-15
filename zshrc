@@ -1,3 +1,5 @@
+# -*- sh -*-
+
 # Prompt
 
 enable -r repeat
@@ -40,6 +42,13 @@ export PS1="┌$RETURN_CODE$WHOAMI $CWD $VCS$JOBS%b
 
 unset hostfg hostbg
 
+# History
+
+HISTSIZE=30000
+SAVEHIST=30000
+HIST_IGNORE_ALL_DUPS=1
+HISTFILE=~/.zsh_history
+
 # Terminal
 
 case "$TERM" in
@@ -55,57 +64,6 @@ case "$TERM" in
     export TERM=screen-256color
     ;;
 esac
-
-# Screen Title
-
-termtitle() {
-  local title
-
-  title="$*"
-
-  case "${TERM}" in
-    screen*)
-      echo -en "\033k${title}\033\\"
-      ;;
-    xterm|rxvt*)
-      echo -en "\033]2;${title}\a"
-      ;;
-  esac
-}
-
-preexec() {
-  last_command="$1"
-
-  if [[ "${TERM}" =~ "screen*" ]] ; then
-    termtitle "${last_command}"
-  fi
-}
-
-if [[ ! "${TERM}" =~ "screen*" ]] ; then
-    termtitle "${USER}@${HOST}"
-fi
-
-precmd() {
-  last_ret=$?
-
-  if [[ "${TERM}" =~ "screen*" ]] ; then
-    if [[ ${last_ret} -eq 0 ]] ; then
-      termtitle "[${last_command}]"
-    else
-      termtitle "[${last_ret} ${last_command}]"
-    fi
-
-  fi
-}
-
-# if no command is running set screen title to ($PWD)
-chpwd() {
-  if [[ "${TERM}" =~ "screen*" ]] ; then
-    last_command="${PWD}"
-  fi
-}
-
-last_command=$0
 
 # Completion
 
@@ -147,19 +105,14 @@ do-startx() {
     vlock
 }
 
-function new-ssh-key() {
-  rm -f ~/.ssh/$1 ~/.ssh/$1.pub
-  ssh-keygen -b 4096 -f ~/.ssh/$1
-  cat ~/.ssh/$1.pub | ssh $1 'cat > ~/.ssh/authorized_keys'
-}
-
 # Aliases
 
 if ls --version | grep -q coreutils ; then
-    LS_COLORS=`dircolors -b | cut -s -d= -f2- | sed -e "s/'\(.*\)';/\1/"`
-    LS_OPTIONS+="--color=auto"
-    LS_OPTIONS+="--file-type"
-    alias ls='ls --color=auto'
+  LS_COLORS=`dircolors -b | cut -s -d= -f2- | sed -e "s/'\(.*\)';/\1/"`
+  export LS_COLORS
+  alias ls='ls --color=auto'
+else
+  alias ls='ls --file-type'
 fi
 
 alias ll='ls -l'
@@ -181,8 +134,9 @@ alias grep="grep --color=auto --binary-files=without-match --exclude=.svn"
 # Utility functions
 
 function encode-with-ffmpeg () {
-    $movie = $1
-    $output = $2
-    ffmpeg -y -i  $movie -c:v libx264 -preset veryslow -b:v 630k -pass 1 -c:a aac -b:a 128k -f mp4 /dev/null && \
-        ffmpeg -i $movie -c:v libx264 -preset veryslow -b:v 630k -pass 2 -c:a aac -b:a 128k $output
+  $movie = $1
+  $output = $2
+
+  ffmpeg -y -i  $movie -c:v libx264 -preset veryslow -b:v 630k -pass 1 -c:a aac -b:a 128k -f mp4 /dev/null && \
+    ffmpeg -i $movie -c:v libx264 -preset veryslow -b:v 630k -pass 2 -c:a aac -b:a 128k $output
 }
