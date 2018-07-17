@@ -1,0 +1,7 @@
+[Service]
+Environment=DISPLAY=%I
+ExecStart=/usr/bin/xautolock -time 5 -locker xtrlock
+Restart=on-failure
+
+[Install]
+WantedBy=graphics.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=git annex assistant in %I
+
+[Service]
+CPUAccounting=true
+CPUQuota=20%
+WorkingDirectory=%I
+ExecStart=/usr/bin/git-annex assistant --foreground
+RuntimeMaxSec=86400
+Restart=always
+
+[Install]
+WantedBy=default.target

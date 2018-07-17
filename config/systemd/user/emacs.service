@@ -1,0 +1,13 @@
+[Unit]
+Description=Emacs Daemon
+Requires=ssh-agent.service gpg-agent.service
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/emacs --no-site-file --daemon
+TimeoutStartSec=30
+TimeoutStopSec=30
+
+[Install]
+WantedBy=default.target
+

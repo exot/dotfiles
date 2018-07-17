@@ -1,0 +1,11 @@
+# https://babushk.in/posts/offlineimap-systemd.html
+
+[Unit]
+Description=OfflineIMAP Quicksync
+After=network.target
+
+[Service]
+Environment=DISPLAY=%I
+ExecStart=/usr/bin/offlineimap -u basic
+Restart=always
+RestartSec=3
