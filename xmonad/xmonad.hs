@@ -110,7 +110,10 @@ keyMap c = mkKeymap c $
   , ("<XF86AudioStop>", spawn "exec emacsclient -n -e '(emms-stop)'")
   ]
   ++
-  [ ("M-a " ++ k, spawn $ "exec emacsclient -ne '(db/emacsclient-key \"" ++ k ++ "\")'")
-    | k <- ["w", "o", "b", "h", "p", "c", "1", "2", "l", "d"] ]
+  [ ("M-a w", spawn "exec emacsclient -ne '(db/org-clock-in-work-task)' " )
+  , ("M-a h", spawn "exec emacsclient -ne '(db/org-clock-in-home-task)' " )
+  , ("M-a b", spawn "exec emacsclient -ne '(db/org-clock-in-break-task)' " )
+  , ("M-a o", spawn "exec emacsclient -ne '(db/org-clock-out)' " )
+  , ("M-a c", spawn "exec emacsclient -ne '(db/make-org-capture-frame)'")]
   where
     layoutMap k l = ("M-l M-" ++ k, sendMessage $ JumpToLayout (l :: String))
