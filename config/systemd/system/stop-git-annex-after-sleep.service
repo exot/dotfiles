@@ -1,0 +1,10 @@
+[Unit]
+Description=Kill git-annex assistant after resume
+After=sleep.target
+
+[Service]
+Type=oneshot
+ExecStart=pkill -f "^/usr/bin/git-annex assistant"
+
+[Install]
+WantedBy=sleep.target
