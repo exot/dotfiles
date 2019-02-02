@@ -82,7 +82,10 @@ main = do
          Gtk.toWidget label :: TaffyIO Gtk.Widget
       myConfig = defaultSimpleTaffyConfig
         { startWidgets =
-            (clock >>= buildContentsBox) : workspaces : map (>>= buildContentsBox) [ layout, bar, commandRunnerNew 1.0 "emacs-current-task" [] "…", bar, windows ]
+            (clock >>= buildContentsBox)
+            : (bar >>= buildContentsBox)
+            : workspaces
+            : map (>>= buildContentsBox) [ layout, bar, commandRunnerNew 1.0 "emacs-current-task" [] "…", bar, windows ]
         , endWidgets = map (>>= buildContentsBox)
           [ textBatteryNew "$percentage$% ($status$)"
           , tray
