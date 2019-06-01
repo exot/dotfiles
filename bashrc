@@ -33,8 +33,8 @@ bind '"\en": history-search-forward'
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Simple prompt in the form of user@host:dir, with trailing newline
-PS1="\u@\h:\w\a\]\n-\$ "
+# Simple prompt
+PS1="┌[\e[0;32m\u@\h\e[m] [\e[0;31m\w\e[m] [\t]\n└── "
 
 # Enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
