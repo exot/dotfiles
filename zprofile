@@ -51,7 +51,7 @@ export WORKON_HOME=${HOME}/.local/share/virtualenvs/
 export PKG_CONFIG_PATH=${HOME}/.local/lib/pkgconfig/
 export LD_LIBRARY_PATH=${HOME}/.local/lib/
 
-export TEXMFHOME=${HOME}/Documents/texmf
+export TEXMFHOME=${HOME}/.local/share/texmf
 export TEXMFOUTPUT=/tmp
 
 export _JAVA_AWT_WM_NONREPARENTING=1
