@@ -54,7 +54,7 @@ case "$TERM" in
   "dumb")
     unsetopt zle
     unsetopt prompt_cr
-    export PS1="%n@%m:%c\$ "
+    export PS1="> "
     ;;
   "rxvt-256color")
     export TERM=rxvt-unicode-256color
