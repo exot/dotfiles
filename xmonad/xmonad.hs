@@ -7,6 +7,7 @@ module Main where
 import System.Exit (exitSuccess)
 
 import Data.Map (Map)
+import Data.Default (def)
 
 import XMonad hiding ((|||))
 
@@ -82,10 +83,10 @@ keyMap c = mkKeymap c $
   , ("M-h"          , sendMessage Shrink)
   , ("M-i"          , sendMessage Expand)
   , ("M-v"          , spawn "xwit -current -warp 10000 10000") -- move cursor away
-  , ("M-,"          , viewScreen 0)
-  , ("M-."          , viewScreen 1)
-  , ("M-S-,"        , sendToScreen 0)
-  , ("M-S-."        , sendToScreen 1)
+  , ("M-,"          , viewScreen def 0)
+  , ("M-."          , viewScreen def 1)
+  , ("M-S-,"        , sendToScreen def 0)
+  , ("M-S-."        , sendToScreen def 1)
   , ("<XF86ScreenSaver>" , spawn "xtrlock")
   ]
   ++
