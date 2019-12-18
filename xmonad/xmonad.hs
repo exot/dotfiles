@@ -27,15 +27,12 @@ import XMonad.Actions.FindEmptyWorkspace (viewEmptyWorkspace, tagToEmptyWorkspac
 import XMonad.Actions.GridSelect (goToSelected)
 import XMonad.Actions.PhysicalScreens (viewScreen, sendToScreen)
 
-import System.Taffybar.Hooks.PagerHints (pagerHints)
-
 import qualified XMonad.StackSet as W
 
 main :: IO ()
 main = xmonad $
        docks $
        ewmh $
-       pagerHints $ -- pass information to taffybar
        def {
              terminal           = "urxvtcd"
            , normalBorderColor  = "#cccccc"
