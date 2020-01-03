@@ -34,7 +34,11 @@ bind '"\en": history-search-forward'
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Simple prompt
-PS1="┌[\e[0;32m\u@\h\e[m] [\e[0;31m\w\e[m] [\t]\n└── "
+if [[ "$TERM" = "dumb" ]]; then
+  PS1="> "
+else
+  PS1="┌[\e[0;32m\u@\h\e[m] [\e[0;31m\w\e[m] [\t]\n└── "
+fi
 
 # Enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
