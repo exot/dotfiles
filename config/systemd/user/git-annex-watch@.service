@@ -1,0 +1,13 @@
+[Unit]
+Description=git annex watch in %I
+
+[Service]
+CPUAccounting=true
+CPUQuota=20%
+WorkingDirectory=%I
+Environment=LANG=en_US.utf8
+ExecStart=/usr/bin/git-annex watch --foreground
+Restart=always
+
+[Install]
+WantedBy=default.target
