@@ -1,3 +1,4 @@
+#!/bin/bash
 # -*- bash -*-
 
 # Based on example .bashrc as provided by Debian
@@ -11,7 +12,7 @@ export PATH=${HOME}/.local/share/perl5/bin:${HOME}/.local/bin:/usr/local/bin:/us
 
 # History control
 HISTCONTROL=ignoreboth
-HISTZIE=20000
+HISTSIZE=20000
 
 # Append to the history file, don't overwrite it
 shopt -s histappend
@@ -42,13 +43,18 @@ else
   else
     GIT_PROMPT=''
   fi
-  PS1="┌[\e[0;32m\u@\h\e[m] [\e[0;31m\w\e[m] [\t] $GIT_PROMPT\n└── "
+  PS1="┌[\[\e[0;32m\u@\h\e[m\] [\[\e[0;31m\w\e[m\]] [\t] $GIT_PROMPT\n└── "
   unset GIT_PROMPT
 fi
 
 # Enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  if [[ -r ~/.dircolors ]]; then
+    eval "$(dircolors -b ~/.dircolors)"
+  else
+    eval "$(dircolors -b)"
+  fi
+
   alias ls='ls --color=auto'
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
