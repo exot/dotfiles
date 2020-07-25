@@ -33,7 +33,13 @@ shopt -s checkwinsize
 if [[ "$TERM" = "dumb" ]]; then
   PS1="\u@\h:\w$ "
 else
-  PS1="┌[\e[0;32m\u@\h\e[m] [\e[0;31m\w\e[m] [\t]\n└── "
+  if [[ -f ~/.config/bash/git-prompt.sh ]]; then
+    GIT_PROMPT='$(__git_ps1 "(%s)")'
+  else
+    GIT_PROMPT=''
+  fi
+  PS1="┌[\e[0;32m\u@\h\e[m] [\e[0;31m\w\e[m] [\t] $GIT_PROMPT\n└── "
+  unset GIT_PROMPT
 fi
 
 # Enable color support of ls and also add handy aliases
