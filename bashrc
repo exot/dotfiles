@@ -42,11 +42,11 @@ else
   RED="\e[0;31m"
   NOCOLOR="\e[m"
   if [[ -f ~/.config/bash/git-prompt.sh ]]; then
-    GIT_PROMPT="\$(__git_ps1 \"${PURPLE}(${NOCOLOR}%s${PURPLE})${NOCOLOR}\")"
+    GIT_PROMPT="\$(__git_ps1 \"${PURPLE}─(${NOCOLOR}%s${PURPLE})${NOCOLOR}\")"
   else
     GIT_PROMPT=''
   fi
-  PS1="┌\[${PURPLE}[${YELLOW}\u@\h${PURPLE}] [${RED}\w${PURPLE}] [${NOCOLOR}\t${PURPLE}] ${GIT_PROMPT}\]\n└── "
+  PS1="┌\[${PURPLE}[${YELLOW}\u@\h${PURPLE}]─[${NOCOLOR}\w${PURPLE}]─[${NOCOLOR}\t${PURPLE}]${GIT_PROMPT}${NOCOLOR}\]\n└── "
   unset GIT_PROMPT PURPLE YELLOW RED NOCOLOR
 fi
 
