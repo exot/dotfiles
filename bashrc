@@ -1,4 +1,4 @@
-# -*- sh -*-
+# -*- bash -*-
 
 # Based on example .bashrc as provided by Debian
 
