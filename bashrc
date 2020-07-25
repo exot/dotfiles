@@ -39,7 +39,6 @@ if [[ "$TERM" = "dumb" ]]; then
 else
   PURPLE="\e[0;35m"
   YELLOW="\e[0;32m"
-  RED="\e[0;31m"
   NOCOLOR="\e[m"
   if [[ -f ~/.config/bash/git-prompt.sh ]]; then
     GIT_PROMPT="\$(__git_ps1 \"${PURPLE}─(${NOCOLOR}%s${PURPLE})${NOCOLOR}\")"
