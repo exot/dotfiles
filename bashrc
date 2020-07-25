@@ -31,7 +31,7 @@ shopt -s checkwinsize
 
 # Simple prompt
 if [[ "$TERM" = "dumb" ]]; then
-  PS1="> "
+  PS1="\u@\h:\w$ "
 else
   PS1="┌[\e[0;32m\u@\h\e[m] [\e[0;31m\w\e[m] [\t]\n└── "
 fi
