@@ -1,0 +1,4 @@
+# Enable Emacs-style M-p and M-n behavior
+"\ep": history-search-backward
+"\en": history-search-forward
+
