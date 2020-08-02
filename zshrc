@@ -102,14 +102,6 @@ setopt autopushd
 DIRSTACKSIZE=30
 alias d='dirs -v'
 
-# Convenience
-
-do-startx() {
-    startx $@ >| ~/.xsession-log 2>&1 &
-    sleep 1
-    vlock
-}
-
 # Aliases
 
 if ls --version | grep -q coreutils ; then
@@ -136,12 +128,8 @@ alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 alias sbcl="sbcl --noinform"
 alias grep="grep --color=auto --binary-files=without-match --exclude=.svn"
 
-# Utility functions
+# Load some functions
 
-function encode-with-ffmpeg () {
-  movie=$1
-  output=$2
-
-  ffmpeg -y -i  $movie -c:v libx264 -preset veryslow -b:v 630k -pass 1 -c:a aac -b:a 128k -f mp4 /dev/null && \
-    ffmpeg -i $movie -c:v libx264 -preset veryslow -b:v 630k -pass 2 -c:a aac -b:a 128k $output
-}
+if [[ -e ~/.config/bash/scripts.sh ]]; then
+  source ~/.config/bash/scripts.sh;
+fi

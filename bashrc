@@ -76,3 +76,7 @@ if [[ -f /etc/bash_completion ]] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# Load custom functions
+if [[ -e ~/.config/bash/scripts.sh ]]; then
+  source ~/.config/bash/scripts.sh;
+fi
