@@ -25,6 +25,14 @@ shopt -o -s noclobber
 
 # Extended globbing
 shopt -s extglob
+shopt -s globstar
+
+# cd to directory if an invalid command is the name of a directory
+shopt -s autocd
+
+# Fix typing errors
+shopt -s cdspell
+shopt -s dirspell
 
 # Check the window size after each command and, if necessary,
 # Update the values of LINES and COLUMNS.
