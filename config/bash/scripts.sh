@@ -19,3 +19,12 @@ function run-remote-apt-upgrade() {
 
   ssh "$host" -t "tmux new-session -d -A -s apt-updates \; send-keys 'sudo apt clean && sudo apt update && sudo apt upgrade && sudo apt autoremove && tripwire --check --interactive' ENTER \; attach"
 }
+
+function tmux-main() {
+  tmux attach -t main || \
+  tmux new-session -d -A -s main \; \
+       send-keys 'journalctl --follow' ENTER \; \
+       split-window \; \
+       send-keys 'htop -t' ENTER \; \
+       attach-session -t main
+}
