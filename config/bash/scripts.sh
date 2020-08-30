@@ -17,7 +17,7 @@ function encode-with-ffmpeg() {
 function run-remote-apt-upgrade() {
   host=$1
 
-  ssh "$host" -t "tmux new-session -d -A -s apt-updates \; send-keys 'sudo apt clean && sudo apt update && sudo apt upgrade && sudo apt autoremove && tripwire --check --interactive' ENTER \; attach"
+  ssh "$host" -t "tmux new-session -d -A -s apt-updates \; send-keys 'sudo apt clean && sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo tripwire --check --interactive' ENTER \; attach"
 }
 
 function tmux-main() {
