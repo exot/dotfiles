@@ -106,6 +106,7 @@ keyMap c = mkKeymap c $
   , ("<XF86AudioNext>", spawn "exec emacsclient -n -e '(emms-next)'")
   , ("<XF86AudioPrev>", spawn "exec emacsclient -n -e '(emms-previous)'")
   , ("<XF86AudioStop>", spawn "exec emacsclient -n -e '(emms-stop)'")
+  , ("<XF86AudioPause>", spawn "exec emacsclient -n -e '(emms-pause)'")
   ]
   ++
   [ ("M-a w", spawn "exec emacsclient -ne '(db/org-clock-in-work-task)' " )
