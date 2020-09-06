@@ -14,10 +14,20 @@ function encode-with-ffmpeg() {
     ffmpeg -i "$movie" -c:v libx264 -preset veryslow -b:v 630k -pass 2 -c:a aac -b:a 128k "$output"
 }
 
-function run-remote-apt-upgrade() {
-  host=$1
+function run-apt-upgrade() {
+  local upgrade_seq="sudo apt clean && sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo tripwire --check --interactive"
+  local host=$1
 
-  ssh "$host" -t "tmux new-session -d -A -s apt-updates \; send-keys 'sudo apt clean && sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo tripwire --check --interactive' ENTER \; attach"
+  if [[ -z $host ]]; then
+    echo "No host name provided, exiting."
+    exit 1;
+  elif [[ $host = $(hostname) || $host = $(hostname --fqdn) ]]; then
+    echo "Running upgrade command locally."
+    eval "${upgrade_seq}"
+  else
+    echo "Running upgrade command remotely."
+    ssh "$host" -t "tmux new-session -d -A -s apt-updates \; send-keys '${upgrade_seq}' ENTER \; attach"
+  fi
 }
 
 function tmux-main() {
