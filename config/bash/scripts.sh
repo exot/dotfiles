@@ -23,7 +23,7 @@ function run-apt-upgrade() {
     exit 1;
   elif [[ $host = $(hostname) || $host = $(hostname --fqdn) ]]; then
     echo "Running upgrade command locally."
-    eval "${upgrade_seq}"
+    eval "tmux new-session -d -A -s apt-updates \; send-keys '${upgrade_seq}' ENTER\; attach"
   else
     echo "Running upgrade command remotely."
     ssh "$host" -t "tmux new-session -d -A -s apt-updates \; send-keys '${upgrade_seq}' ENTER \; attach"
