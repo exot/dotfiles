@@ -66,7 +66,7 @@ keyMap c = mkKeymap c $
   , ("M-<Space>"    , sendMessage NextLayout)
   , ("M-n"          , refresh)
   , ("M-p"          , spawn "dmenu_run")
-  , ("M-S-x"        , spawn "xtrlock")
+  , ("M-S-x"        , spawn "xflock4")
   , ("M-e"          , spawn "emacsclient -a \"\" -c")
   , ("M-k"          , windows W.focusUp)
   , ("M-j"          , windows W.focusDown)
