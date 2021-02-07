@@ -87,7 +87,7 @@ keyMap c = mkKeymap c $
   , ("M-."          , viewScreen def 1)
   , ("M-S-,"        , sendToScreen def 0)
   , ("M-S-."        , sendToScreen def 1)
-  , ("<XF86ScreenSaver>" , spawn "xtrlock")
+  , ("<XF86ScreenSaver>" , spawn "xflock4")
   ]
   ++
   [ layoutMap k l
