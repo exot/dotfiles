@@ -35,6 +35,9 @@ function tmux-main() {
   tmux new-session -d -A -s main \; \
        send-keys 'journalctl --follow' ENTER \; \
        split-window \; \
+       send-keys 'offlineimap' ENTER \; \
+       split-window \; \
        send-keys 'htop -t' ENTER \; \
+       select-layout even-vertical \; \
        attach-session -t main
 }
