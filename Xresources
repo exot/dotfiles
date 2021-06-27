@@ -80,7 +80,7 @@ URxvt*scrollBar_right:   false
 URxvt*scrollBar:         false
 URxvt*transparent:       false
 URxvt*geometry:          84x24
-URxvt*font:              xft:DejaVu Sans Mono:pixelsize=14
+URxvt*font:              xft:DejaVu Sans Mono:pixelsize=16
 URxvt*urgentOnBell:      true
 URxvt*visualBell:        false
 URxvt.iso14755:          false
