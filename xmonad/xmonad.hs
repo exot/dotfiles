@@ -35,7 +35,7 @@ main = xmonad $
        docks $
        ewmh $
        def {
-             terminal           = "urxvtcd"
+             terminal           = "xfce4-terminal"
            , normalBorderColor  = "#cccccc"
            , focusedBorderColor = "#2342ff"
            , keys = keyMap
