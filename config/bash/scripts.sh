@@ -39,3 +39,8 @@ function tmux-main() {
        select-layout even-vertical \; \
        attach-session -t main
 }
+
+# https://unix.stackexchange.com/questions/22834/how-to-uncompress-zlib-data-in-unix
+function zlibd() {
+  printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - "$@" | gzip -dc
+}
