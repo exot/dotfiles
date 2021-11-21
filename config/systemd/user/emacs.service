@@ -6,8 +6,6 @@ Requires=ssh-agent.service gpg-agent.service
 ExecStart=/usr/bin/emacs --no-site-file --fg-daemon
 TimeoutStartSec=30
 TimeoutStopSec=30
-Restart=always
-RestartSec=10s
 
 [Install]
 WantedBy=default.target
