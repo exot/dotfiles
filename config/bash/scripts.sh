@@ -36,6 +36,7 @@ function tmux-main() {
        send-keys 'journalctl --follow' ENTER \; \
        split-window \; \
        send-keys 'htop -t' ENTER \; \
+       split-window \; \
        select-layout even-vertical \; \
        attach-session -t main
 }
