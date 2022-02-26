@@ -1,3 +1,17 @@
 #!/bin/sh
 
-. $HOME/.profile
+. "$HOME/.profile"
+
+# Xsession will start it's own versio nof ssh-agent, but we want to use ours;
+# setting SSH_AUTH_AUTH will prevent Xsession from starting it's own instance of
+# ssh-agent.
+
+systemctl --user start ssh-agent.service
+
+SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket" # can this be retrieved
+                                                  # directly from
+                                                  # ssh-agent.service?
+export SSH_AUTH_SOCK
+
+SSH_AGENT_PID="$(systemctl --user show -p MainPID --value ssh-agent)"
+export SSH_AGENT_PID
