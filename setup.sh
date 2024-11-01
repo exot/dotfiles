@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+SOURCE_DIR="$(dirname "$0")"
+
 function setup-config-file () {
   local SOURCE_NAME=$1
   local TARGET_NAME=${2:-.$SOURCE_NAME}
@@ -10,7 +12,7 @@ function setup-config-file () {
     echo "File $TARGET_NAME already exists, not creating symbolic link"
   else
     mkdir -p "$(dirname "$HOME"/"$TARGET_NAME")"
-    ln -s "$PWD/$SOURCE_NAME" "$HOME/$TARGET_NAME"
+    ln -s "$SOURCE_DIR/$SOURCE_NAME" "$HOME/$TARGET_NAME"
     echo "Created symbolic link $HOME/$TARGET_NAME"
   fi
 }
