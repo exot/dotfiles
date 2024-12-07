@@ -17,6 +17,7 @@ function setup-config-file () {
   fi
 }
 
+setup-config-file XCompose
 setup-config-file Xresources
 setup-config-file ansible.cfg
 setup-config-file bashrc
