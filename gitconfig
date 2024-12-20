@@ -1,7 +1,7 @@
 [alias]
         wdiff = diff --color-words
         wshow = show --color-words
-        sc = !git add -u . && git commit -s -m \"[Misc] Snapshot\" && git push-ar && git status -s
+        sc = !git add -u && git commit -s -m \"Snapshot\"
         ci = commit -sm
         co = checkout
         st = status
@@ -48,8 +48,6 @@
 [log]
 	decorate = true
 	abbrevCommit = true
-[magit]
-	hideCampaign = true
 [merge]
 	ff = true
 [pull]
