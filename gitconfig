@@ -1,0 +1,62 @@
+[alias]
+        wdiff = diff --color-words
+        wshow = show --color-words
+        sc = !git add -u . && git commit -s -m \"[Misc] Snapshot\" && git push-ar && git status -s
+        ci = commit -sm
+        co = checkout
+        st = status
+        # push-ar = push to all remotes
+	push-ar = "!f () { git remote | while read -r remote; do if $(git config \"remote.${remote}.url\" > /dev/null); then echo \"Pushing to ${remote}\"; git push $@ \"${remote}\" : ; else echo \"Remote $remote does not have URL set\"; fi; done }; f"
+        doglog = log --decorate --oneline --graph --color
+[annex]
+	autocommit = false
+	addunlocked = true
+	diskreserve = 10gb
+	retry = 5
+	stalldetection = true
+	synccontent = true
+[apply]
+        whitespace = fix
+[color]
+        diff = true
+        pager = true
+        status = true
+        ui = true
+[commit]
+	gpgsign = true
+[core]
+        attributesfile = ~/.gitattributes
+[diff]
+        wordRegex = \\(|\\)|[^[:space:]()]+
+	submodule = log
+	algorithm = histogram
+[diff "common-lisp"]
+        xfuncname="^\\((def\\S+\\s+\\S+)"
+[diff "gpg"]
+	# Try to catch decription errors, as git log aborts otherwise; this
+	# happens in particular when files covered by git-annex are missing
+	textconv = bash -c 'gpg --no-tty --decrypt \"$1\" || cat \"$1\"' _
+[diff "elisp"]
+        xfuncname="^\\((((def\\S+)|use-package)\\s+\\S+)"
+[diff "org"]
+        xfuncname="^\\*+ (.*)"
+[gcrypt]
+	rsync-put-flags = "-Pv "
+	participants = simple
+[init]
+	defaultBranch = main
+[log]
+	decorate = true
+	abbrevCommit = true
+[magit]
+	hideCampaign = true
+[merge]
+	ff = true
+[pull]
+	rebase = false
+[push]
+        default = tracking
+[rerere]
+        enabled = true
+[status]
+	submodulesummary = 1
