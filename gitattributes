@@ -1,0 +1,4 @@
+*.tex    diff=tex
+*.lisp   diff=common-lisp
+*.el     diff=elisp
+*.org    diff=org
