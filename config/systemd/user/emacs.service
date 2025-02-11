@@ -3,6 +3,8 @@ Description=Emacs Daemon
 Requires=ssh-agent.service gpg-agent.service
 
 [Service]
+# https://emacs.stackexchange.com/questions/3650/compose-key-in-emacs-multi-key-is-undefined#3910
+Environment=XMODIFIERS=@im=none
 ExecStart=/usr/bin/emacs --no-site-file --fg-daemon
 TimeoutStartSec=30
 TimeoutStopSec=30
