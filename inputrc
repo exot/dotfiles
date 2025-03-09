@@ -2,10 +2,19 @@
 "\ep": history-search-backward
 "\en": history-search-forward
 
-# https://unix.stackexchange.com/questions/275883/add-trailing-slash-in-bash-completion-of-directory-symbolic-links
+# Don't stop on short of trailing slash on symbolic links to directories
 set mark-symlinked-directories on
 
-# https://www.masteringemacs.org/article/keyboard-shortcuts-every-command-line-hacker-should-know-about-gnu-readline
+# Increase inter-key timeouts as the default 500ms is too short
 set keyseq-timeout 1200
+
+# Color some completion output
 set colored-stats on
 set colored-completion-prefix on
+
+$if Bash
+
+# Dynamic expansion like Emacs' dabbrev
+"\e\C-o": dabbrev-expand
+
+$endif
