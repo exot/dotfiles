@@ -4,3 +4,8 @@
 
 # https://unix.stackexchange.com/questions/275883/add-trailing-slash-in-bash-completion-of-directory-symbolic-links
 set mark-symlinked-directories on
+
+# https://www.masteringemacs.org/article/keyboard-shortcuts-every-command-line-hacker-should-know-about-gnu-readline
+set keyseq-timeout 1200
+set colored-stats on
+set colored-completion-prefix on
