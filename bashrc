@@ -40,8 +40,10 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Simple prompt
-if [[ "$TERM" = "dumb" ]]; then
+# Set prompt
+if [[ "$TERM" = "dumb" ]] && ! [[ "$INSIDE_EMACS" =~ ,comint ]]; then
+  # Use simple prompt for dumb terminals, as used by Emacs' TRAMP, but not when we are in Emacs'
+  # comint mode (like shell)
   PS1="\u@\h:\w$ "
 else
   PURPLE="\e[0;35m"
