@@ -15,6 +15,7 @@
 	retry = 5
 	stalldetection = true
 	synccontent = true
+        sshcaching = true
 [apply]
         whitespace = fix
 [color]
