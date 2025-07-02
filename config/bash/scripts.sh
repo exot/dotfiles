@@ -33,7 +33,7 @@ function run-apt-upgrade() {
 function tmux-main() {
   tmux attach -t main || \
   tmux new-session -d -A -s main \; \
-       send-keys 'journalctl --follow' ENTER \; \
+       send-keys 'journalctl --follow --priority 0..4' ENTER \; \
        split-window \; \
        send-keys 'htop' ENTER \; \
        split-window \; \
