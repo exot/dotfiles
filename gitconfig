@@ -12,7 +12,7 @@
 	autocommit = false
 	addunlocked = true
 	diskreserve = 10gb
-	retry = 5
+	retry = 2
 	stalldetection = true
 	synccontent = true
         sshcaching = true
