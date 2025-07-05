@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-SOURCE_DIR="$(dirname "$0")"
+SOURCE_DIR="$(readlink -f $(dirname "$0"))"
 
 function setup-config-file () {
   local SOURCE_NAME=$1
