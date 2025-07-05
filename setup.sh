@@ -8,7 +8,7 @@ function setup-config-file () {
   local SOURCE_NAME=$1
   local TARGET_NAME=${2:-.$SOURCE_NAME}
 
-  if [[ -e "$HOME/$TARGET_NAME" ]]; then
+  if [[ -e "$HOME/$TARGET_NAME" || -L "$HOME/$TARGET_NAME" ]]; then
     echo "File $TARGET_NAME already exists, not creating symbolic link"
   else
     mkdir -p "$(dirname "$HOME"/"$TARGET_NAME")"
