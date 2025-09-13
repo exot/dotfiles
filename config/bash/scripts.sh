@@ -15,7 +15,7 @@ function encode-with-ffmpeg() {
 }
 
 function run-apt-upgrade() {
-  local upgrade_seq='mail; echo "Starting update" && sudo systemd-inhibit --what=shutdown:idle:sleep /bin/bash -c "apt auto-clean && apt update && apt upgrade && apt autoremove && tripwire --check --interactive"'
+  local upgrade_seq='mail; echo "Starting update" && sudo systemd-inhibit --what=shutdown:idle:sleep /bin/bash -c "apt auto-clean && apt update && apt autoremove && apt upgrade && apt autoremove && tripwire --check --interactive"'
   local host=$1
 
   if [[ -z $host ]]; then
