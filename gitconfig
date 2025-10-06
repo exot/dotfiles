@@ -6,7 +6,7 @@
         co = checkout
         st = status
         # push-ar = push to all remotes
-	push-ar = "!f () { git remote | while read -r remote; do if $(git config \"remote.${remote}.url\" > /dev/null); then echo \"Pushing to ${remote}\"; git push $@ \"${remote}\" : ; else echo \"Remote $remote does not have URL set\"; fi; done }; f"
+	push-ar = "!f () { git remote | while read -r remote; do if $(git config \"remote.${remote}.url\" > /dev/null); then echo \"Pushing to ${remote}\"; git push \"${remote}\" \"$@\" : ; else echo \"Remote $remote does not have URL set\"; fi; done }; f"
         doglog = log --decorate --oneline --graph --color
 [annex]
 	autocommit = false
