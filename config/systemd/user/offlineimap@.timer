@@ -1,8 +1,0 @@
-# https://babushk.in/posts/offlineimap-systemd.html
-
-[Unit]
-Description=OfflineIMAP Quicksync timer
-
-[Timer]
-OnCalendar=*:*:0/30
-Unit=offlineimap@%I.service
