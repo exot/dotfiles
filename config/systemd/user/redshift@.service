@@ -1,0 +1,4 @@
+[Service]
+EnvironmentFile=%h/.local/etc/local-env
+Environment=DISPLAY=%I
+ExecStart=/usr/bin/redshift -l "${LATITUDE}":"${LONGITUDE}" -t 4500K:2500K
